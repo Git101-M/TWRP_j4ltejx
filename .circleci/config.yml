@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  SHRP-j4lte:
+  SHRP-j4ltejx:
    docker:
       - image: hendramanu/docker-build:build-advanced
    steps:
@@ -13,7 +13,7 @@ jobs:
             repo init --depth=1 -u https://github.com/SKYHAWK-Recovery-Project/platform_manifest_twrp_omni -b android-9.0
             repo sync -j$(nproc --all)
             mkdir -p device/samsung && cd device/samsung
-            git clone https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME j4lte -b shrp
+            git clone https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME j4ltejx -b shrp
 
       - run:
           name: Building
@@ -21,21 +21,22 @@ jobs:
           command: |
             cd ~/shrp
             source build/envsetup.sh
-            add_lunch_combo omni_j4lte-eng
-            add_lunch_combo omni_j4lte-userdebug
+            add_lunch_combo omni_j4ltejx-eng
+            add_lunch_combo omni_j4ltejx-userdebug
             export ALLOW_MISSING_DEPENDENCIES=true
-            lunch omni_j4lte-eng
+            lunch omni_j4ltejx-eng
             mka recoveryimage
 
       - run:
           name: Send To Telegram
           command: |
-            for zipname_tg in ~/shrp/out/target/product/j4lte/*.zip ; do
+            for zipname_tg in ~/shrp/out/target/product/j4ltejx/*.zip ; do
             curl -F chat_id=$CHAT_ID -F document=@$zipname_tg -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument
             done
+        
 
 workflows:
   version: 2.1
   cooking:
     jobs:
-      - SHRP-j4lte
+      - SHRP-j4ltejx

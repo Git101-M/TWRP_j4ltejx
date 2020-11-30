@@ -1,5 +1,5 @@
 
-#LOCAL_PATH := device/samsung/j4lte/
+#LOCAL_PATH := device/samsung/j4ltejx/
 LOCAL_PATH := $(call my-dir)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 include $(CLEAR_VARS)
