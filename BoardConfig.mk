@@ -96,7 +96,7 @@ TARGET_USES_LOGD := true
 # System as root
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_SUPPRESS_SECURE_ERASE := true
-AB_OTA_UPDATER := false
+# AB_OTA_UPDATER := false
 TARGET_OTA_ASSERT_DEVICE := j4lte,j4ltejx,j4lteub
 
 # Adjustment
