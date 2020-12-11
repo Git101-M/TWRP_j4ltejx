@@ -113,7 +113,7 @@ TW_INCLUDE_BUSYBOX := true
 # Path of your SHRP Tree
 SHRP_PATH := device/samsung/j4lte
 # Maintainer name *
-SHRP_MAINTAINER := RedLine_27
+SHRP_MAINTAINER := NamaSayaHendra
 # Device codename *
 SHRP_DEVICE_CODE := j4lte
 # Recovery Type (It can be treble,normal,SAR) [Only for About Section] *
@@ -126,3 +126,8 @@ SHRP_INTERNAL := /sdcard
 SHRP_OTG := /usb_otg
 SHRP_FLASH := 0
 SHRP_REC := /dev/block/platform/13540000.dwmmc0/by-name/RECOVERY
+SHRP_NO_SAR_AUTOMOUNT := true
+# SHRP Express, enables on-the-fly theme patching (also persistent) + persistent lock [Optional]
+SHRP_EXPRESS := true
+# SHRP Dark mode, use this flag to have dark theme set by default [Optional]
+SHRP_DARK := true
